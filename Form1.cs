@@ -3,6 +3,8 @@ using System.Data;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing.Imaging;
+using System.IO;
 namespace Test
 {
     public partial class Form1 : Form
@@ -46,12 +48,43 @@ namespace Test
                 DataTable dt = new DataTable();
                 sqlDa.Fill(dt);
                 dataGridView2.DataSource = dt;
+
+
+
+                //MessageBox.Show(System.IO.Directory.GetCurrentDirectory() + @"\Pokemon_Sprites_Modified\Original" + Substring + ".PNG", "Test Find path");
+
+
+
+                //try to insert sprite for pokemon
+                try
+                {
+                        Image image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\Pokemon_Sprites_Modified\Original\" + Substring + ".PNG");
+                        this.image1.Image = image;
+                    }
+                    catch {
+                        image1.Image = null;
+                        MessageBox.Show("Pokemon Sprite Does not exist", "Note");
+
+                    }
+                    //try to insert shiny sprite for pokemon
+
+                    try
+                    {
+                        Image image2 = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\Pokemon_Sprites_Modified\Shiny\" + Substring + ".PNG");
+                        this.image2.Image = image2;
+                    }
+                    catch {
+                         image2.Image = null;
+                         MessageBox.Show("Pokemon Shinny Sprite does not exist", "Note");
+
+                    }
             }
             catch (SqlException ex)
             {
                 MessageBox.Show("Invalid Input", "Warning");
 
             }
+
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -67,6 +100,7 @@ namespace Test
                 DataTable dt = new DataTable();
                 sqlDa.Fill(dt);
                 dataGridView2.DataSource = dt;
+
             }
             catch (SqlException ex)
             {
@@ -234,6 +268,34 @@ namespace Test
                     }
 
                 }
+
+                //Insert images for sprites
+                try
+                {
+                    Image image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\Pokemon_Sprites_Modified\Original\" + Substring + ".PNG");
+                    this.image3.Image = image;
+                }
+                catch
+                {
+                    image3.Image = null;
+                    MessageBox.Show("Pokemon Sprite Does not exist", "Note");
+
+                }
+                try
+                {
+                    Image image2 = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\Pokemon_Sprites_Modified\Shiny\" + Substring + ".PNG");
+                    this.image4.Image = image2;
+                }
+                catch
+                {
+                    image4.Image = null;
+                    MessageBox.Show("Pokemon Shinny Sprite does not exist", "Note");
+
+                }
+
+
+
+
             }
 
             catch (SqlException ex) //This catches incorrect input
@@ -586,6 +648,11 @@ namespace Test
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void image2_Click(object sender, EventArgs e)
         {
 
         }
