@@ -1,2 +1,6 @@
-# Pokemon-Database
-This program was written in C# and is an application that accesses a SQL database for pokemon. This application allows the user to cycle through pokemon, search tables for specific pokemon or moves using their name or ID number, view moves that can be learned by specific pokemon and see the Pokemon's types, add or remove pokemon from the tables, and update attributes of specific pokemon.
+This project is an application that is used to access a database for pokemon.
+This application provides a GUI that allows the search the tables for specific 
+pokemon or moves, view moves that can be learned by specific pokemon and see the 
+Pokemon's types, add or remove pokemon from the tables, and update attributes of 
+specific pokemon. This program was made using C# and accesses a SQL database
+using SQL query's and requires the NuGet package: System.Data.SqlClient.
