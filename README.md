@@ -1,0 +1,2 @@
+# Pokemon-Database
+This program was written in C# and is an application that accesses a SQL database for pokemon. This application allows the user to cycle through pokemon, search tables for specific pokemon or moves using their name or ID number, view moves that can be learned by specific pokemon and see the Pokemon's types, add or remove pokemon from the tables, and update attributes of specific pokemon.
